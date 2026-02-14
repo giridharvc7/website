@@ -27,5 +27,5 @@ This story is about our trip to Nara, a quaint village in the outskirts of Kyoto
 Nara's icon is the deer park, surrounding the Todaiji temple, where people interact and pet the deers. From our trip we knew that most of Japan's villages and tourist towns had a temple attractions. Given our previous experiences in Nikko, Kyoto and many other places, we expected the usual - a magnificent temple structure, a garden, a few souveneir shops and may be a museum. Sure, Nara checked all the boxes, but with there was more than that meets the eye. 
 
 The first obvious sign was this unassuming pillar of the [Lion Capital of Ashoka](https://en.wikipedia.org/wiki/Lion_Capital_of_Ashoka) 
-![Lion Capital of Ashoka](/website/images/blog/nara-ashoka.jpg)
+![Lion Capital of Ashoka](/images/blog/nara-ashoka.jpg)
 
