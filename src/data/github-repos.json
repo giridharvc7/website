@@ -10,5 +10,17 @@
     "description": "A floating action button just like Google Inbox for iOS.",
     "language": "Objective-C",
     "url": "https://github.com/giridharvc7/VCFloatingActionButton"
+  },
+  {
+    "name": "Apptics",
+    "description": "Privacy-first mobile analytics SDK for iOS, adopted across 40+ Zoho apps.",
+    "language": "Swift",
+    "url": "https://github.com/zoho/Apptics"
+  },
+  {
+    "name": "Catalyst iOS SDK",
+    "description": "Official iOS SDK for Catalyst, Zoho's serverless developer platform.",
+    "language": "Swift",
+    "url": "https://github.com/catalystbyzoho/Catalyst-iOS-SDK"
   }
 ]
