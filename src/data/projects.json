@@ -4,5 +4,11 @@
     "description": "A distraction free way to save recipes from Instagram instagram and youtube in a strucutred format to Notion. No App install needed.",
     "status": "Active",
     "link": "http://keep-it-reel.vercel.app"
+  },
+  {
+    "name": "Mahabharata Notes",
+    "description": "A knowledge graph of Bibek Debroy's Unabridged Mahabharata with interconnected notes on stories, characters, and places. Received recognition from author Bibek Debroy.",
+    "status": "Archived",
+    "link": "https://roamresearch.com/#/app/Mahabharata/page/2jSmryaJL"
   }
 ]
