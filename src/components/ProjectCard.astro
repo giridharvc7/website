@@ -5,9 +5,10 @@ interface Props {
   status: 'Active' | 'Archived' | 'In Progress';
   link?: string;
   tags?: string[];
+  tweet?: string;
 }
 
-const { name, description, status, link, tags = [] } = Astro.props;
+const { name, description, status, link, tags = [], tweet } = Astro.props;
 
 const statusClass = status.toLowerCase().replace(' ', '-');
 ---
@@ -20,6 +21,11 @@ const statusClass = status.toLowerCase().replace(' ', '-');
     <span class:list={['status-badge', statusClass]}>{status}</span>
   </div>
   <p class="muted small">{description}</p>
+  {tweet && (
+    <p class="small" style="margin-top: 0.5rem; margin-bottom: 0;">
+      <a href={tweet} target="_blank" rel="noopener" class="tweet-link">Author's appreciation →</a>
+    </p>
+  )}
   {tags.length > 0 && (
     <div class="tags">
       {tags.map(tag => <span class="tag">{tag}</span>)}
@@ -74,5 +80,15 @@ const statusClass = status.toLowerCase().replace(' ', '-');
 
   p {
     margin-bottom: 0;
+  }
+
+  .tweet-link {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-size: 0.875rem;
+  }
+
+  .tweet-link:hover {
+    text-decoration: underline;
   }
 </style>
