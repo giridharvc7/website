@@ -1,0 +1,78 @@
+---
+interface WorkItem {
+  title: string;
+  description: string;
+  type?: string;
+  link?: string;
+}
+
+interface Props {
+  items: WorkItem[];
+}
+
+const { items } = Astro.props;
+
+const typeLabels: Record<string, string> = {
+  talk: 'Talk',
+  blog: 'Blog',
+  press: 'Press',
+  launch: 'Launch',
+  impact: 'Impact',
+  'open-source': 'Open Source',
+};
+---
+
+<ul class="pow-list">
+  {items.map(item => (
+    <li>
+      <div class="pow-header">
+        {item.link
+          ? <a href={item.link} target="_blank" rel="noopener">{item.title} &rarr;</a>
+          : <span class="pow-title">{item.title}</span>
+        }
+        {item.type && <span class="pow-type">{typeLabels[item.type] || item.type}</span>}
+      </div>
+      <p class="muted small">{item.description}</p>
+    </li>
+  ))}
+</ul>
+
+<style>
+  .pow-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .pow-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .pow-title {
+    font-weight: 500;
+  }
+
+  .pow-header a {
+    font-weight: 500;
+  }
+
+  .pow-type {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-muted);
+    border: 1px solid var(--color-border);
+    padding: 0.1em 0.4em;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+</style>

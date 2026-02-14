@@ -1,0 +1,21 @@
+[
+  {
+    "name": "Side Project One",
+    "description": "A brief description of what this project does and why it exists.",
+    "status": "Active",
+    "link": "https://github.com/giridhar/project-one",
+    "tags": ["iOS", "Swift"]
+  },
+  {
+    "name": "Side Project Two",
+    "description": "Another project exploring a different problem space.",
+    "status": "In Progress",
+    "tags": ["AI", "Python"]
+  },
+  {
+    "name": "Archived Tool",
+    "description": "A tool built to solve a specific problem. No longer maintained.",
+    "status": "Archived",
+    "tags": ["CLI", "Go"]
+  }
+]

@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+const homeEntries = await getCollection('home');
+const homeEntry = homeEntries[0];
+const { headline, nav, meta } = homeEntry.data;
+const { Content } = await render(homeEntry);
+
+const siteDescription = `${meta.fullName} — ${meta.jobTitle} at ${meta.employer}. ${meta.description}`;
+---
+
+<Layout title="Giridhar" description={siteDescription}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": meta.fullName,
+      "url": Astro.site?.toString(),
+      "jobTitle": meta.jobTitle,
+      "worksFor": {
+        "@type": "Organization",
+        "name": meta.employer
+      },
+      "description": meta.description,
+      "knowsAbout": meta.knowsAbout,
+      "email": meta.email,
+      "sameAs": meta.social
+    })} />
+  </Fragment>
+
+  <section>
+    <h1>{headline}</h1>
+    <Content />
+  </section>
+</Layout>

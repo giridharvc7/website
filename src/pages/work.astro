@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import WorkTimeline from '../components/WorkTimeline.astro';
+import ProofOfWork from '../components/ProofOfWork.astro';
+import { getCollection } from 'astro:content';
+
+const workEntries = await getCollection('work');
+const workData = workEntries[0].data;
+---
+
+<Layout title="Work — Giridhar" description="Giridhar's career highlights — 10+ years across product management and engineering, focused on developer ecosystems.">
+  <section>
+    <h1>Work</h1>
+    <p class="muted">
+      10+ years across product management and engineering with a focus on developer ecosystems.
+      <a href="/resume/Giridhar-Resume.pdf">Resume (PDF)</a>
+    </p>
+  </section>
+
+  <section>
+    <h2>Timeline</h2>
+    <WorkTimeline roles={workData.roles} />
+  </section>
+
+  <section>
+    <h2>Proof of Work</h2>
+    <ProofOfWork items={workData.proofOfWork} />
+  </section>
+</Layout>

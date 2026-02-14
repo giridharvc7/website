@@ -1,0 +1,15 @@
+{
+  "_comment": "Apple HIG system colors (iOS). Change --color-accent in global.css to swap. Update both light and dark mode values.",
+  "_current": "indigo",
+  "colors": {
+    "red":    { "light": "#FF3B30", "dark": "#FF453A" },
+    "orange": { "light": "#FF9500", "dark": "#FF9F0A" },
+    "yellow": { "light": "#FFCC00", "dark": "#FFD60A" },
+    "green":  { "light": "#34C759", "dark": "#30D158" },
+    "teal":   { "light": "#5AC8FA", "dark": "#64D2FF" },
+    "blue":   { "light": "#007AFF", "dark": "#0A84FF" },
+    "indigo": { "light": "#5856D6", "dark": "#5E5CE6" },
+    "purple": { "light": "#AF52DE", "dark": "#BF5AF2" },
+    "pink":   { "light": "#FF2D55", "dark": "#FF375F" }
+  }
+}

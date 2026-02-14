@@ -1,0 +1,57 @@
+---
+interface Role {
+  company: string;
+  title: string;
+  dates: string;
+  description: string;
+}
+
+interface Props {
+  roles: Role[];
+}
+
+const { roles } = Astro.props;
+---
+
+<div class="timeline">
+  {roles.map(role => (
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <strong>{role.company}</strong>
+        <span class="muted small">{role.dates}</span>
+      </div>
+      <p class="timeline-title">{role.title}</p>
+      <p class="timeline-desc muted small">{role.description}</p>
+    </div>
+  ))}
+</div>
+
+<style>
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .timeline-item {
+    padding-left: 1rem;
+    border-left: 2px solid var(--color-accent);
+  }
+
+  .timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .timeline-title {
+    margin-bottom: 0.25rem;
+    font-size: 0.95rem;
+  }
+
+  .timeline-desc {
+    margin-bottom: 0;
+  }
+</style>

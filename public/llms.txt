@@ -1,0 +1,34 @@
+# Giridhar Villiambakkam Chakravarthi
+
+## About
+Product builder with 10+ years across product management (6 years) and engineering with a focus on developer ecosystems. High agency leader driven by customer focus, empathy and bias toward action.
+
+## Current Role
+- Senior Product Manager at Postman (Jan 2021 — Present)
+- Building the best-in-class API Client: advanced scripting, seamless API authorizations, multi-protocol support
+- Key wins: Package Library & NPM support (20% workflow adoption), BYOK encryption (~$10M ARR unblocked), Scratchpad sunsetting (double-digit growth in sign-ups/WAU)
+
+## Previous Experience
+- Zoho Corporation (May 2013 — Dec 2020)
+  - Founding PM for Catalyst, a serverless developer platform (TechCrunch coverage)
+  - Built Zoho Apptics, a privacy-first mobile analytics tool (adopted across 40+ Zoho apps)
+
+## Skills
+- Product management, developer ecosystems, API platforms, enterprise security
+- GTM execution, cross-functional leadership, growth experimentation
+- Engineering background (Information Technology, B.Tech)
+
+## Education
+- B.Tech, Information Technology — Rajalakshmi Institute of Technology (2009–2013)
+
+## Website Sections
+- /work — Career timeline and proof-of-work highlights
+- /projects — Side projects (open-source and personal)
+- /writing — Essays on product, experience, and craft
+- /travel — Travel stories and itineraries
+- /photos — Photo gallery
+
+## Contact
+- Email: giridhar06@gmail.com
+- Website: https://giridhar.github.io
+- Resume: /resume/Giridhar-Resume.pdf

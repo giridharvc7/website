@@ -1,0 +1,78 @@
+---
+interface Props {
+  name: string;
+  description: string;
+  status: 'Active' | 'Archived' | 'In Progress';
+  link?: string;
+  tags?: string[];
+}
+
+const { name, description, status, link, tags = [] } = Astro.props;
+
+const statusClass = status.toLowerCase().replace(' ', '-');
+---
+
+<div class="project-card">
+  <div class="project-header">
+    <h3>
+      {link ? <a href={link} target="_blank" rel="noopener">{name}</a> : name}
+    </h3>
+    <span class:list={['status-badge', statusClass]}>{status}</span>
+  </div>
+  <p class="muted small">{description}</p>
+  {tags.length > 0 && (
+    <div class="tags">
+      {tags.map(tag => <span class="tag">{tag}</span>)}
+    </div>
+  )}
+</div>
+
+<style>
+  .project-card {
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    padding: 1.25rem;
+  }
+
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .project-header h3 {
+    margin-bottom: 0;
+  }
+
+  .status-badge {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.15em 0.5em;
+    border-radius: 3px;
+    border: 1px solid var(--color-border);
+    color: var(--color-muted);
+    white-space: nowrap;
+  }
+
+  .tags {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+  }
+
+  .tag {
+    font-size: 0.7rem;
+    color: var(--color-muted);
+    background: var(--color-surface);
+    padding: 0.15em 0.5em;
+    border-radius: 3px;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+</style>

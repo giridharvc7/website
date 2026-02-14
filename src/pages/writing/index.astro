@@ -1,0 +1,82 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('writing')).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+---
+
+<Layout title="Writing — Giridhar" description="Essays on product, experience, and craft by Giridhar.">
+  <section>
+    <h1>Writing</h1>
+    <p class="muted">Essays on product, experience, travel, and craft.</p>
+  </section>
+
+  <section>
+    {posts.length === 0 && <p class="muted">No posts yet. Check back soon.</p>}
+    <ul class="post-list">
+      {posts.map(post => (
+        <li>
+          <a href={`/writing/${post.id}`}>
+            <span class="post-title">{post.data.title}</span>
+            <span class="post-meta muted small">
+              <span class="post-category">{post.data.category}</span>
+              <time datetime={post.data.date.toISOString()}>
+                {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+              </time>
+            </span>
+          </a>
+          <p class="post-desc muted small">{post.data.description}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+</Layout>
+
+<style>
+  .post-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .post-list li a {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    text-decoration: none;
+  }
+
+  .post-list li a:hover .post-title {
+    text-decoration: underline;
+  }
+
+  .post-title {
+    font-weight: 500;
+  }
+
+  .post-desc {
+    margin-top: 0.25rem;
+    margin-bottom: 0;
+  }
+
+  .post-meta {
+    white-space: nowrap;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+
+  .post-category {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 1px solid var(--color-border);
+    padding: 0.1em 0.4em;
+    border-radius: 3px;
+  }
+</style>
