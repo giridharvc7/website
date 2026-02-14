@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const posts = (await getCollection('writing')).sort(
   (a, b) => b.data.date.getTime() - a.data.date.getTime()
 );
@@ -18,7 +19,7 @@ const posts = (await getCollection('writing')).sort(
     <ul class="post-list">
       {posts.map(post => (
         <li>
-          <a href={`/writing/${post.id}`}>
+          <a href={`${base}/writing/${post.id}`}>
             <span class="post-title">{post.data.title}</span>
             <span class="post-meta muted small">
               <span class="post-category">{post.data.category}</span>
