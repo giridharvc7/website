@@ -36,7 +36,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     {ogImage && <meta property="og:image" content={ogImage} />}
 
     <!-- RSS -->
-    <link rel="alternate" type="application/rss+xml" title="Writing" href={`${import.meta.env.BASE_URL}rss.xml`} />
+    <link rel="alternate" type="application/rss+xml" title="Writing" href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/rss.xml`} />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

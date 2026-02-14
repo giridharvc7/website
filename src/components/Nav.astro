@@ -1,10 +1,11 @@
 ---
-const base = import.meta.env.BASE_URL; // e.g. '/website/'
+const base = import.meta.env.BASE_URL.replace(/\/$/, ''); // strip trailing slash: '/website'
+const home = `${base}/`;
 const navLinks = [
-  { href: base, label: 'Home' },
-  { href: `${base}work`, label: 'Work' },
-  { href: `${base}projects`, label: 'Projects' },
-  { href: `${base}writing`, label: 'Writing' },
+  { href: home, label: 'Home' },
+  { href: `${base}/work`, label: 'Work' },
+  { href: `${base}/projects`, label: 'Projects' },
+  { href: `${base}/writing`, label: 'Writing' },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -18,7 +19,7 @@ const currentPath = Astro.url.pathname;
           <li>
             <a
               href={link.href}
-              class:list={[{ active: currentPath === link.href || (link.href !== base && currentPath.startsWith(link.href)) }]}
+              class:list={[{ active: currentPath === link.href || (link.href !== home && currentPath.startsWith(link.href)) }]}
             >
               {link.label}
             </a>
