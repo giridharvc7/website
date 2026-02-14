@@ -25,10 +25,8 @@ Product builder with 10+ years across product management (6 years) and engineeri
 - /work — Career timeline and proof-of-work highlights
 - /projects — Side projects (open-source and personal)
 - /writing — Essays on product, experience, and craft
-- /travel — Travel stories and itineraries
-- /photos — Photo gallery
 
 ## Contact
 - Email: giridhar06@gmail.com
-- Website: https://giridhar.github.io
-- Resume: /resume/Giridhar-Resume.pdf
+- Website: https://giridharvc7.github.io/website
+- Resume: https://giridharvc7.github.io/website/resume/Giridhar-Resume.pdf
