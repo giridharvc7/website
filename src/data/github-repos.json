@@ -13,13 +13,13 @@
   },
   {
     "name": "Apptics",
-    "description": "Privacy-first mobile analytics SDK for iOS, adopted across 40+ Zoho apps.",
+    "description": "Privacy-first mobile analytics SDK for iOS, adopted across 40+ Zoho apps. Source code originally tracked in Zoho's private repo.",
     "language": "Swift",
     "url": "https://github.com/zoho/Apptics"
   },
   {
     "name": "Catalyst iOS SDK",
-    "description": "Official iOS SDK for Catalyst, Zoho's serverless developer platform.",
+    "description": "Official iOS SDK for Catalyst, Zoho's serverless developer platform. Source code originally tracked in Zoho's private repo.",
     "language": "Swift",
     "url": "https://github.com/catalystbyzoho/Catalyst-iOS-SDK"
   }

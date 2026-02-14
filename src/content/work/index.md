@@ -11,7 +11,7 @@ roles:
     description: "Founding PM for Catalyst, a serverless developer platform. Drove end-to-end launch from pre-sales to GTM, securing analyst relations and TechCrunch coverage."
 
   - company: Zoho Corporation
-    title: "Developer & Product Manager, Zoho Apptics"
+    title: "Ideator, Developer & Product Manager, Zoho Apptics"
     dates: "Jun 2017 to Feb 2019"
     description: "Built a privacy-first mobile analytics tool from hackathon concept to internal product, adopted across 40+ Zoho mobile apps before public launch."
 
@@ -36,9 +36,10 @@ proofOfWork:
     type: launch
     link: "https://blog.postman.com/announcing-new-lightweight-postman-api-client/"
 
-  - title: "Sign-up Funnel - 20% Growth"
-    description: "Identified and fixed a critical sign-up funnel leak beyond my scope."
-    type: impact
+  - title: "Various releases at Postman"
+    description: "Blog posts of various features shipped at Postman, from 2021 to 2023"
+    type: blog
+    link: "https://blog.postman.com/author/giridhar/"
 
   - title: "Catalyst - Launch at Zoholics"
     description: "Launched Catalyst in Zoho's Annual developer conference"
@@ -49,9 +50,4 @@ proofOfWork:
     description: "Founding PM for Zoho's serverless platform. Bootstrapped first 100 ISV partners pre-launch."
     type: press
     link: "https://techcrunch.com/2019/10/16/zoho-launches-catalyst-a-new-developer-platform-with-a-focus-on-microservices/"
-
-  - title: "Various releases at Postman"
-    description: "Blog posts of various features shipped at Postman, from 2021 to 2023"
-    type: blog
-    link: "https://blog.postman.com/author/giridhar/"
 ---
