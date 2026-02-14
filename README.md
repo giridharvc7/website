@@ -1,8 +1,8 @@
-# giridhar.github.io
+# giridharvc7.github.io/website
 
 Personal website — work, writing, and projects.
 
-Built with [Astro](https://astro.build), hosted on GitHub Pages.
+Built with [Astro](https://astro.build), hosted on [GitHub Pages](https://giridharvc7.github.io/website).
 
 ## Commands
 
