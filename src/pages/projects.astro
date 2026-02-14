@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import projects from '../data/projects.json';
+import githubRepos from '../data/github-repos.json';
 ---
 
 <Layout title="Projects — Giridhar" description="Side projects by Giridhar — open-source and personal.">
@@ -23,6 +24,22 @@ import projects from '../data/projects.json';
       ))}
     </div>
   </section>
+
+  <section>
+    <h2>Open Source</h2>
+    <p class="muted small">Select repositories on GitHub.</p>
+    <ul class="repo-list">
+      {githubRepos.map((repo: any) => (
+        <li class="repo-item">
+          <div class="repo-header">
+            <a href={repo.url} target="_blank" rel="noopener">{repo.name}</a>
+            <span class="repo-lang">{repo.language}</span>
+          </div>
+          <p class="muted small">{repo.description}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
 </Layout>
 
 <style>
@@ -30,5 +47,49 @@ import projects from '../data/projects.json';
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 1rem;
+  }
+
+  .repo-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .repo-item {
+    border-left: 2px solid var(--color-border);
+    padding-left: 1rem;
+    margin-bottom: 0;
+  }
+
+  .repo-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .repo-header a {
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--color-text);
+  }
+
+  .repo-header a:hover {
+    color: var(--color-accent);
+  }
+
+  .repo-lang {
+    font-size: 0.7rem;
+    color: var(--color-muted);
+    background: var(--color-surface);
+    padding: 0.15em 0.5em;
+    border-radius: 3px;
+  }
+
+  .repo-item p {
+    margin-bottom: 0;
   }
 </style>
