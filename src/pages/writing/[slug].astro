@@ -3,7 +3,8 @@ import Layout from '../../layouts/Layout.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('writing');
+  const isDev = import.meta.env.DEV;
+  const posts = await getCollection('writing', (post) => isDev || !post.data.draft);
   return posts.map(post => ({
     params: { slug: post.id },
     props: { post },
@@ -16,6 +17,7 @@ const { Content } = await render(post);
 
 <Layout title={`${post.data.title} — Giridhar`} description={post.data.description}>
   <article>
+    {post.data.draft && <p class="draft-banner">Draft — this post is only visible in dev mode</p>}
     <header>
       <h1>{post.data.title}</h1>
       <p class="muted small">
@@ -29,6 +31,16 @@ const { Content } = await render(post);
 </Layout>
 
 <style>
+  .draft-banner {
+    background: #d97706;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+
   header {
     margin-bottom: 2rem;
   }

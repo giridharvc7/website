@@ -8,6 +8,7 @@ const writing = defineCollection({
     date: z.coerce.date(),
     description: z.string(),
     category: z.enum(['product', 'experience', 'travel']).default('experience'),
+    draft: z.boolean().default(false),
   }),
 });
 
