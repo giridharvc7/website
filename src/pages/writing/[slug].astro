@@ -50,4 +50,24 @@ const { Content } = await render(post);
   article :global(p:has(> img)) {
     margin: 0;
   }
+
+  article :global(.photo-grid) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+    margin: 1.5rem 0;
+  }
+
+  article :global(.photo-grid img) {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin: 0;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  }
+
+  /* For 5 photos: last image spans full width */
+  article :global(.photo-grid img:last-child:nth-child(odd)) {
+    grid-column: 1 / -1;
+  }
 </style>
