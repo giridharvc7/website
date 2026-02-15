@@ -35,6 +35,19 @@ category: experience  # or: travel, product, personal
 ```
 3. Write in markdown below the `---`
 
+### Create a draft post
+Add `draft: true` to the frontmatter of any writing post:
+```yaml
+---
+title: "Work In Progress"
+date: 2025-06-01
+description: "Still writing this one"
+category: experience
+draft: true
+---
+```
+Draft posts are visible only when running `npm run dev`. They are excluded from the production build, the `/writing` listing, and the RSS feed. Remove `draft: true` (or set it to `false`) to publish.
+
 ### Add images to a blog post
 1. Drop image in `public/images/blog/`
 2. Reference in markdown:
