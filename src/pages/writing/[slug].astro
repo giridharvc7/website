@@ -71,6 +71,22 @@ const readingTime = Math.ceil(wordCount / 200);
     margin: 0;
   }
 
+  article :global(figure) {
+    margin: 1.5rem 0;
+  }
+
+  article :global(figure img) {
+    margin: 0 !important;
+  }
+
+  article :global(figcaption) {
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--color-muted, #888);
+    margin-top: 0.5rem;
+    font-style: italic;
+  }
+
   article :global(.photo-grid) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -90,4 +106,92 @@ const readingTime = Math.ceil(wordCount / 200);
   article :global(.photo-grid img:last-child:nth-child(odd)) {
     grid-column: 1 / -1;
   }
+
+  /* Lightbox — :global() because the element is injected dynamically by JS */
+  :global(#lightbox) {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.88);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease-in;
+  }
+
+  :global(#lightbox.open) {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  :global(#lightbox-img) {
+    max-width: 92vw;
+    max-height: 92vh;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+    transform: scale(0.95);
+    transition: transform 0.25s ease-in;
+  }
+
+  :global(#lightbox.open #lightbox-img) {
+    transform: scale(1);
+  }
+
+  :global(#lightbox-close) {
+    position: fixed;
+    top: 1rem;
+    right: 1.2rem;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+  }
+
+  :global(#lightbox-close:hover) {
+    color: #fff;
+  }
 </style>
+
+<script>
+  function initLightbox() {
+    // Create lightbox once, reuse across navigations
+    if (!document.getElementById('lightbox')) {
+      const lb = document.createElement('div');
+      lb.id = 'lightbox';
+      lb.setAttribute('aria-modal', 'true');
+      lb.setAttribute('role', 'dialog');
+      lb.innerHTML = '<button id="lightbox-close" aria-label="Close">&times;</button><img id="lightbox-img" src="" alt="" />';
+      document.body.appendChild(lb);
+
+      lb.addEventListener('click', (e) => { if (e.target === lb) closeLightbox(); });
+      document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+    }
+
+    // Attach to article images not yet initialized
+    document.querySelectorAll('article img:not(.fw-logo):not([data-lightbox])').forEach((img) => {
+      img.dataset.lightbox = '1';
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', () => {
+        const lbImg = document.getElementById('lightbox-img');
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        document.getElementById('lightbox').classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox')?.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('astro:page-load', initLightbox);
+</script>
