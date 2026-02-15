@@ -2,12 +2,11 @@
 import { defineConfig } from 'astro/config';
 import { remarkBaseImages } from './src/plugins/remarkBaseImages.mjs';
 
-const base = '/website';
+const base = '';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://giridharvc7.github.io',
-  base,
+  site: 'https://giridhar.vc',
   output: 'static',
   markdown: {
     remarkPlugins: [

@@ -4,7 +4,7 @@
 - **Framework:** Astro 5 (static site generator)
 - **Styling:** Plain CSS (`src/styles/global.css`), no framework
 - **Hosting:** GitHub Pages via GitHub Actions (`.github/workflows/deploy.yml`)
-- **Live URL:** https://giridharvc7.github.io/website (temporary — custom domain pending)
+- **Live URL:** https://giridhar.vc (custom domain via Porkbun → GitHub Pages)
 - **Commands:** `npm run dev` (localhost:4321/website), `npm run build`, `npm run preview`
 
 ## Site Sections
