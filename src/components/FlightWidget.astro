@@ -1,0 +1,196 @@
+---
+interface Props {
+  flight: {
+    from: string;
+    to: string;
+    airline: string;
+    airlineCode?: string;
+    date: Date;
+    departure?: string;
+    arrival?: string;
+    duration?: string;
+    stops?: string[];
+  };
+}
+
+const { flight } = Astro.props;
+const { from, to, airline, airlineCode, date, departure, arrival, duration, stops = [] } = flight;
+
+function formatDate(d: Date): string {
+  return d.toLocaleDateString('en-US', { weekday: 'short', day: 'numeric', month: 'short' });
+}
+
+const dotCount = stops.length + 2; // origin + stops + destination
+const stopLabel = stops.length === 0
+  ? 'Direct'
+  : stops.length === 1
+    ? `1 stop in ${stops[0]}`
+    : `${stops.length} stops via ${stops.join(', ')}`;
+---
+
+<div class="flight-widget">
+  <div class="fw-top">
+    <div class="fw-airline">
+      {airlineCode && (
+        <img
+          class="fw-logo"
+          src={`https://images.kiwi.com/airlines/64/${airlineCode}.png`}
+          alt={airline}
+          width="20"
+          height="20"
+          style="width:20px;height:20px;max-width:20px;border-radius:50%;object-fit:contain;margin:0;box-shadow:none;"
+          onerror="this.style.display='none'"
+        />
+      )}
+      <span class="fw-name">{airline}</span>
+    </div>
+    <span class="fw-date">{formatDate(date)}</span>
+  </div>
+
+  <div class="fw-route">
+    <div class="fw-endpoint">
+      {departure && <span class="fw-time">{departure}</span>}
+      <span class="fw-iata">{from}</span>
+    </div>
+
+    <div class="fw-middle">
+      <div class="fw-track">
+        {Array.from({ length: dotCount }).map((_, i) => (
+          <>
+            {i > 0 && <span class="fw-dash" />}
+            <span class={`fw-dot${i > 0 && i < dotCount - 1 ? ' fw-dot-fill' : ''}`} />
+          </>
+        ))}
+      </div>
+      <span class="fw-info">
+        {stopLabel}{duration ? ` · ${duration}` : ''}
+      </span>
+    </div>
+
+    <div class="fw-endpoint fw-endpoint-right">
+      {arrival && <span class="fw-time">{arrival}</span>}
+      <span class="fw-iata">{to}</span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .flight-widget {
+    margin: 0 auto 2rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 0.9rem 1.05rem;
+    max-width: 340px;
+    font-family: inherit;
+  }
+
+  .fw-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.95rem;
+  }
+
+  .fw-airline {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .fw-logo {
+    flex-shrink: 0;
+  }
+
+  .fw-name {
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: var(--color-text);
+    white-space: nowrap;
+  }
+
+  .fw-date {
+    font-size: 0.62rem;
+    color: var(--color-muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-left: 0.5rem;
+  }
+
+  .fw-route {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 0.6rem;
+    align-items: start;
+  }
+
+  .fw-endpoint {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .fw-endpoint-right {
+    align-items: flex-end;
+  }
+
+  .fw-time {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-text);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .fw-iata {
+    font-size: 0.66rem;
+    color: var(--color-muted);
+    letter-spacing: 0.05em;
+    margin-top: 0.16rem;
+    line-height: 1;
+  }
+
+  .fw-middle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.28rem;
+    padding-top: 0.48rem;
+  }
+
+  .fw-track {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  .fw-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-muted);
+    flex-shrink: 0;
+    background: transparent;
+    display: block;
+  }
+
+  .fw-dot-fill {
+    background: var(--color-muted);
+  }
+
+  .fw-dash {
+    flex: 1;
+    display: block;
+    height: 0;
+    border-top: 1.5px dashed var(--color-muted);
+    min-width: 5px;
+  }
+
+  .fw-info {
+    font-size: 0.58rem;
+    color: var(--color-muted);
+    text-align: center;
+    line-height: 1;
+    white-space: nowrap;
+  }
+</style>

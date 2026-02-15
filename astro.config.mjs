@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import { remarkBaseImages } from './src/plugins/remarkBaseImages.mjs';
+import { remarkFlightWidget } from './src/plugins/remarkFlightWidget.mjs';
 
 const base = '';
 
@@ -11,6 +12,7 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [
       [remarkBaseImages, base],
+      remarkFlightWidget,
     ],
   },
 });

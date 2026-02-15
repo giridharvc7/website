@@ -9,6 +9,17 @@ const writing = defineCollection({
     description: z.string(),
     category: z.enum(['product', 'experience', 'travel']).default('experience'),
     draft: z.boolean().default(false),
+    flight: z.object({
+      from: z.string(),
+      to: z.string(),
+      airline: z.string(),
+      airlineCode: z.string().optional(),
+      date: z.coerce.date(),
+      departure: z.string().optional(),
+      arrival: z.string().optional(),
+      duration: z.string().optional(),
+      stops: z.array(z.string()).optional(),
+    }).optional(),
   }),
 });
 

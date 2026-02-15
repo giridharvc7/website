@@ -3,6 +3,17 @@ title: "The Unexpected South Indian Connection in Nara, Japan"
 date: 2019-11-01
 description: "A time when i was genuinely mind-blown by how Indians travelled a few thousand years back"
 category: travel
+flight:
+  from: MAA
+  to: NRT
+  airline: SriLankan Airlines
+  airlineCode: UL
+  date: 2019-10-28
+  departure: "15:47"
+  arrival: "08:30+1"
+  duration: 14h 55m
+  stops:
+    - CMB
 ---
 
 Me, my wife and my brother were on our first _major_ International trip to our dream destination, Japan, back in 2019. 
@@ -21,6 +32,8 @@ So naturally we picked the best time of the year [that fits our budget, back the
 Fall was an interesting choice for us, coming from India, we didn't know a season like this existed - so we didn't know what we signed up for. We chose it because a few comments on reddit mentioned its cheaper than Sakura season, during which my wife originally wanted to go. In hindsight, choosing sakura season would mean the trip would have never happened, because, COVID. 
 
 So I put down an itinerary so meticulous, that I'm still proud about the itinerary and the execution. It was optimised for max-utilizing the JR Pass [the train pass used for bullet train], and covered the Golden path of Tokyo, Kyoto, Osaka. With day trips to Hiroshima, Mt.Kawaguchiko, Nikko and Nara. 
+
+::flight
 
 You can go through our detailed itinerary [here](https://trello.com/b/z4IpCGcl/japan-autumn-itinerary). The prices listed there don't make sense anymore -- inflation is real, kids. 
 

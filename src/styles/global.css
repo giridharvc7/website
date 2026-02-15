@@ -181,3 +181,122 @@ section {
 section:last-child {
   margin-bottom: 0;
 }
+
+/* Flight widget (rendered by remarkFlightWidget plugin via ::flight) */
+.flight-widget {
+  margin: 1.5rem auto;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 0.9rem 1.05rem;
+  max-width: 340px;
+}
+
+.flight-widget .fw-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.95rem;
+}
+
+.flight-widget .fw-airline {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.flight-widget .fw-logo {
+  flex-shrink: 0;
+}
+
+.flight-widget .fw-name {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.flight-widget .fw-date {
+  font-size: 0.62rem;
+  color: var(--color-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+}
+
+.flight-widget .fw-route {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.6rem;
+  align-items: start;
+}
+
+.flight-widget .fw-endpoint {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.flight-widget .fw-endpoint-right {
+  align-items: flex-end;
+}
+
+.flight-widget .fw-time {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.flight-widget .fw-iata {
+  font-size: 0.66rem;
+  color: var(--color-muted);
+  letter-spacing: 0.05em;
+  margin-top: 0.16rem;
+  line-height: 1;
+}
+
+.flight-widget .fw-middle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.28rem;
+  padding-top: 0.48rem;
+}
+
+.flight-widget .fw-track {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.flight-widget .fw-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-muted);
+  flex-shrink: 0;
+  background: transparent;
+  display: block;
+}
+
+.flight-widget .fw-dot-fill {
+  background: var(--color-muted);
+}
+
+.flight-widget .fw-dash {
+  flex: 1;
+  display: block;
+  height: 0;
+  border-top: 1.5px dashed var(--color-muted);
+  min-width: 5px;
+}
+
+.flight-widget .fw-info {
+  font-size: 0.58rem;
+  color: var(--color-muted);
+  text-align: center;
+  line-height: 1;
+  white-space: nowrap;
+}
