@@ -144,19 +144,4 @@ ul {
   }
 </style>
 
-<script is:inline>
-  (function() {
-    const saved = localStorage.getItem('theme');
-    if (saved) document.documentElement.classList.add(saved);
-
-    document.getElementById('theme-toggle').addEventListener('click', function() {
-      const html = document.documentElement;
-      const isDark = html.classList.contains('dark') ||
-        (!html.classList.contains('light') && window.matchMedia('(prefers-color-scheme: dark)').matches);
-      html.classList.remove('dark', 'light');
-      const next = isDark ? 'light' : 'dark';
-      html.classList.add(next);
-      localStorage.setItem('theme', next);
-    });
-  })();
-</script>
+<!-- Theme toggle behavior is centralized in Layout to survive view transitions -->
