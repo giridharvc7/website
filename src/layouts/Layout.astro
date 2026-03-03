@@ -54,5 +54,44 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       <slot />
     </main>
     <Footer />
+    <script is:inline>
+      (function() {
+        function applySavedTheme() {
+          const t = localStorage.getItem('theme');
+          const html = document.documentElement;
+          html.classList.remove('dark', 'light');
+          if (t === 'dark' || t === 'light') {
+            html.classList.add(t);
+          }
+        }
+
+        function toggleTheme() {
+          const html = document.documentElement;
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          const isDark = html.classList.contains('dark') ||
+            (!html.classList.contains('light') && prefersDark);
+          const next = isDark ? 'light' : 'dark';
+          html.classList.remove('dark', 'light');
+          html.classList.add(next);
+          localStorage.setItem('theme', next);
+        }
+
+        // Initial sync for full page loads
+        applySavedTheme();
+
+        // Re-apply theme after Astro view transitions replace <html> attributes
+        document.addEventListener('astro:page-load', applySavedTheme);
+
+        // Event delegation so the handler survives nav swaps
+        document.addEventListener('click', (e) => {
+          const target = e.target;
+          if (!(target instanceof Element)) return;
+          const button = target.closest('#theme-toggle');
+          if (!button) return;
+          e.preventDefault();
+          toggleTheme();
+        });
+      })();
+    </script>
   </body>
 </html>

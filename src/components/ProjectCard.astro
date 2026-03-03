@@ -4,11 +4,12 @@ interface Props {
   description: string;
   status: 'Active' | 'Archived' | 'In Progress';
   link?: string;
+  blog?: string;
   tags?: string[];
   tweet?: string;
 }
 
-const { name, description, status, link, tags = [], tweet } = Astro.props;
+const { name, description, status, link, blog, tags = [], tweet } = Astro.props;
 
 const statusClass = status.toLowerCase().replace(' ', '-');
 ---
@@ -21,9 +22,14 @@ const statusClass = status.toLowerCase().replace(' ', '-');
     <span class:list={['status-badge', statusClass]}>{status}</span>
   </div>
   <p class="muted small">{description}</p>
+  {blog && (
+    <p class="small" style="margin-top: 0.5rem; margin-bottom: 0;">
+      <a href={blog} target="_blank" rel="noopener" class="project-link">Blog →</a>
+    </p>
+  )}
   {tweet && (
     <p class="small" style="margin-top: 0.5rem; margin-bottom: 0;">
-      <a href={tweet} target="_blank" rel="noopener" class="tweet-link">Author's appreciation →</a>
+      <a href={tweet} target="_blank" rel="noopener" class="project-link">Author's appreciation →</a>
     </p>
   )}
   {tags.length > 0 && (
@@ -82,13 +88,13 @@ const statusClass = status.toLowerCase().replace(' ', '-');
     margin-bottom: 0;
   }
 
-  .tweet-link {
+  .project-link {
     color: var(--color-accent);
     text-decoration: none;
     font-size: 0.875rem;
   }
 
-  .tweet-link:hover {
+  .project-link:hover {
     text-decoration: underline;
   }
 </style>
