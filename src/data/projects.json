@@ -6,6 +6,13 @@
     "link": "http://keep-it-reel.vercel.app"
   },
   {
+    "name": "Vyasa",
+    "description": "Building the world's most complex epic, the Mahabharata, through a 6-stage LLM pipeline to extract, resolve, and narrate it as a knowledge graph.",
+    "status": "In Progress",
+    "link": "http://vyasa-alpha.vercel.app",
+    "blog": "https://vyasa-alpha.vercel.app/about"
+  },
+  {
     "name": "Mahabharata Notes",
     "description": "A knowledge graph of Bibek Debroy's Unabridged Mahabharata with interconnected notes on stories, characters, and places.",
     "status": "Archived",
